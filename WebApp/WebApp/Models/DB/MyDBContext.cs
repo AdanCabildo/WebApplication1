@@ -72,6 +72,10 @@ namespace MyWebApplication.Models.DB
                   .HasColumnName("RowModifiedDateTime")
                   .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
+                entity.Property(e => e.AccountImage)
+                  .HasColumnName("AccountImage")
+                  .IsUnicode(false);
+
             });
 
             modelBuilder.Entity<SystemUsers>(entity =>
