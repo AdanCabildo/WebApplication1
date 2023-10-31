@@ -73,3 +73,8 @@ D:\USER\Skool\APC\3rd_Year\1st_Term\C#\mvc\WebApplication1\WebApp\WebApp\obj\Deb
 D:\USER\Skool\APC\3rd_Year\1st_Term\C#\mvc\WebApplication1\WebApp\WebApp\obj\Debug\net7.0\WebApp.pdb
 D:\USER\Skool\APC\3rd_Year\1st_Term\C#\mvc\WebApplication1\WebApp\WebApp\obj\Debug\net7.0\WebApp.genruntimeconfig.cache
 D:\USER\Skool\APC\3rd_Year\1st_Term\C#\mvc\WebApplication1\WebApp\WebApp\obj\Debug\net7.0\ref\WebApp.dll
+D:\USER\Skool\APC\3rd_Year\1st_Term\C#\mvc\WebApplication1\WebApp\WebApp\bin\Debug\net7.0\Microsoft.Owin.dll
+D:\USER\Skool\APC\3rd_Year\1st_Term\C#\mvc\WebApplication1\WebApp\WebApp\bin\Debug\net7.0\Microsoft.Owin.Security.dll
+D:\USER\Skool\APC\3rd_Year\1st_Term\C#\mvc\WebApplication1\WebApp\WebApp\bin\Debug\net7.0\Microsoft.Owin.Security.Cookies.dll
+D:\USER\Skool\APC\3rd_Year\1st_Term\C#\mvc\WebApplication1\WebApp\WebApp\bin\Debug\net7.0\Owin.dll
+D:\USER\Skool\APC\3rd_Year\1st_Term\C#\mvc\WebApplication1\WebApp\WebApp\bin\Debug\net7.0\BCrypt.Net.dll
