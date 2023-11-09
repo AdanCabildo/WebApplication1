@@ -204,6 +204,7 @@ namespace MyWebApplication.Models.EntityManager
                     UserID = records.us.UserID,
                     ProfileID = records.u.ProfileID,
                     LoginName = records.us.LoginName,
+                    Password = records.us.PasswordEncryptedText,
                     FirstName = records.u.FirstName,
                     LastName = records.u.LastName,
                     Email = records.u.Email,

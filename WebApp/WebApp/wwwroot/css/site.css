@@ -1,22 +1,48 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
 
 body {
-  margin-bottom: 60px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.btn:hover, .btn:active:hover, .btn-link.nav-link:hover, .form-control:hover, .form-check-input:hover {
+    box-shadow: 0 0 0 0.1rem #ccc, 0 0 0 0.25rem #258cfb;
+}
+
+.navbar {
+    background: linear-gradient(to bottom, #fff, #f9f9f9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.transition {
+    transition: all 0.3s ease-in-out;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    border-bottom: 2px solid #258cfb;
+    padding-left: 15px;
+    padding-top: 10px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea {
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+img:hover {
+    opacity: 0.8;
 }
