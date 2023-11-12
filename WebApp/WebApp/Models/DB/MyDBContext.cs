@@ -1,15 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using System.Runtime.Intrinsics.X86;
+using Artikulo.Models.DB;
+using MyWebApplication.Models.DB;
 
-namespace MyWebApplication.Models.DB
+namespace Artikulo.Models.DB
 {
     public class MyDBContext : DbContext
     {
         public MyDBContext()
         {
         }
+
         public MyDBContext(DbContextOptions<MyDBContext> options)
-        : base(options)
+           : base(options)
         {
         }
 
@@ -22,17 +26,24 @@ namespace MyWebApplication.Models.DB
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=(localdb)\\MyDemoServer; Initial Catalog=DemoDB; Integrated Security=True; Multiple Active Result Sets=True");
+                // warning To protect potentially sensitive information in your connection string,
+                // you should move it out of source code.See http://go.microsoft.com/fwlink/?LinkId=723263
+                // for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Data Source=(localdb)\\MyDemoDB;Initial Catalog=ArtikuloDB;Integrated Security=True;Multiple Active Result Sets=True");
             }
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Users>(entity =>
             {
                 entity.ToTable("SYSUserProfile");
 
+                entity.HasKey(e => new { e.ProfileID, e.UserID });
+
                 entity.Property(e => e.ProfileID)
-                .HasColumnName("SYSUserProfileID")
+               .HasColumnName("SYSUserProfileID")
+                  .UseIdentityColumn()
                 .HasColumnType("int");
 
                 entity.Property(e => e.UserID)
@@ -49,28 +60,9 @@ namespace MyWebApplication.Models.DB
                 .HasMaxLength(50)
                 .IsUnicode(false);
 
-                entity.Property(e => e.Email)
-                .HasColumnName("Email")
-                .HasMaxLength(150)
-                .IsUnicode(false);
-
-                entity.Property(e => e.Address)
-                .HasColumnName("Address")
-                .HasMaxLength(255)
-                .IsUnicode(false);
-
-                entity.Property(e => e.PhoneNumber)
-                .HasColumnName("PhoneNumber")
-                .HasMaxLength(12)
-                .IsUnicode(false);
-
                 entity.Property(e => e.Gender)
                 .HasColumnName("Gender")
                 .HasColumnType("char(1)");
-
-                entity.Property(e => e.AccountImage)
-                .HasColumnName("AccountImage")
-                .IsUnicode(false);
 
                 entity.Property(e => e.CreatedBy)
                 .HasColumnName("RowCreatedSYSUserID")
@@ -87,6 +79,11 @@ namespace MyWebApplication.Models.DB
                 entity.Property(e => e.ModifiedDateTime)
                 .HasColumnName("RowModifiedDateTime")
                 .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                entity.Property(e => e.AccountImage)
+                .HasColumnName("AccountImage")
+                .IsUnicode(false)
+                .IsRequired(false);
             });
 
             modelBuilder.Entity<SystemUsers>(entity =>
@@ -102,16 +99,6 @@ namespace MyWebApplication.Models.DB
                 .HasMaxLength(50)
                 .IsUnicode(false);
 
-                entity.Property(e => e.PasswordEncryptedText)
-                .HasColumnName("PasswordEncryptedText")
-                .HasMaxLength(200)
-                .IsUnicode(false);
-
-                entity.Property(e => e.Salt)
-                .HasColumnName("Salt")
-                .HasMaxLength(128)
-                .IsUnicode(false);
-
                 entity.Property(e => e.CreatedBy)
                 .HasColumnName("RowCreatedSYSUserID")
                 .HasColumnType("int");
@@ -127,6 +114,7 @@ namespace MyWebApplication.Models.DB
                 entity.Property(e => e.ModifiedDateTime)
                 .HasColumnName("RowModifiedDateTime")
                 .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
             });
 
             modelBuilder.Entity<UserRole>(entity =>
@@ -166,6 +154,7 @@ namespace MyWebApplication.Models.DB
                 entity.Property(e => e.ModifiedDateTime)
                 .HasColumnName("RowModifiedDateTime")
                 .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
             });
 
             modelBuilder.Entity<Role>(entity =>
@@ -201,7 +190,9 @@ namespace MyWebApplication.Models.DB
                 entity.Property(e => e.ModifiedDateTime)
                 .HasColumnName("RowModifiedDateTime")
                 .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
             });
         }
     }
 }
+
