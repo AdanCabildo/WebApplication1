@@ -33,6 +33,7 @@ namespace Artikulo.Models.DB
             }
         }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Users>(entity =>
